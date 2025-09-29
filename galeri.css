@@ -1,0 +1,52 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+    background-color: azure;
+}
+
+h1{
+    text-align: center;
+    /* Menghapus padding-right karena mengganggu animasi */
+    /* padding-right: 50%; */ 
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(-100%); 
+    }
+    to {
+        transform: translateX(100%); 
+    }
+}
+
+/* 1. LAYAR KECIL / MOBILE (Default) */
+.Paving-container {
+    display: grid;
+    /* Jarak 15px di antara gambar */
+    gap: 15px; 
+    /* 1 kolom untuk ponsel */
+    grid-template-columns: 1fr; 
+}
+
+.Paving img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 2. LAYAR SEDANG / TABLET (lebar layar 600px ke atas) */
+@media (min-width: 600px) {
+    .Paving-container {
+        /* 2 kolom untuk tablet */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* 3. LAYAR BESAR / DESKTOP (lebar layar 900px ke atas) */
+@media (min-width: 900px) {
+    .Paving-container {
+        /* MENGGANTI ke 3 kolom untuk desktop sesuai permintaan */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
